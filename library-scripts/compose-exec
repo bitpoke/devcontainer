@@ -1,0 +1,22 @@
+#!/bin/env bash
+
+set -eo pipefail
+
+if [ -z "${WORKSPACE_FOLDER}" ] ; then
+    echo "Environment variable WORKSPACE_FOLDER is not set." >&2
+    exit 1
+fi
+
+WORKSPACE_VOLUME="${CODESPACE_VSCODE_FOLDER:-/workspace}"
+
+ARGS=()
+if [ ! -t 0 ] ; then
+    ARGS+=("-T")
+fi
+
+PWD=$(pwd)
+if [[ ! "$(realpath -q --relative-base="${WORKSPACE_VOLUME}" "${PWD}")" =~ ^/ ]] ; then
+    ARGS+=("-w" "${PWD}")
+fi
+
+exec docker compose --project-directory "${WORKSPACE_FOLDER}" exec "${ARGS[@]}" "$@"
