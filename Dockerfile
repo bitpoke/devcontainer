@@ -1,5 +1,7 @@
 FROM gitpod/workspace-base:latest
 
+LABEL org.opencontainers.image.source="https://github.com/bitpoke/devcontainer"
+
 COPY library-scripts /usr/local/share/library-scripts
 
 # install bitpoke aliases
