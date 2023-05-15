@@ -11,5 +11,5 @@ export WORKSPACE_FOLDER
 alias wp="/usr/local/share/library-scripts/compose-exec wordpress wp"
 alias php="/usr/local/share/library-scripts/compose-exec wordpress php"
 alias composer="/usr/local/share/library-scripts/compose-exec wordpress composer"
-alias mysqldump="/usr/local/share/library-scripts/compose-exec db mysqldump"
-alias mysql="/usr/local/share/library-scripts/compose-exec db mysql"
+# alias mysqldump="/usr/local/share/library-scripts/compose-exec db mysqldump"
+# alias mysql="/usr/local/share/library-scripts/compose-exec db mysql"
